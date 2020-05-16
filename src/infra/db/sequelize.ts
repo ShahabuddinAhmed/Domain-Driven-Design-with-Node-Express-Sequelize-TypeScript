@@ -26,4 +26,13 @@ const newSequelize = (): Sequelize => {
     return ConnectDB.getInstance();
 };
 
+export const initializeDBConnection = async () => {
+    try {
+        await newSequelize().authenticate();
+        console.log("MySQL Connection has been Established Successfully.");
+    } catch (err) {
+        console.error("Unable to connect to the database:", err);
+    }
+};
+
 export default newSequelize;
