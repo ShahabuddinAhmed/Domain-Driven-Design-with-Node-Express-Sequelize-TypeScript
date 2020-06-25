@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  web:
+    container_name: flightService
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/server
+    environment:
+      MYSQL_DATABASE: visa
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_HOST: 172.22.0.3
+      APPLICATION_SERVER_PORT: 3000
+      APP_FORCE_SHUTDOWN_SECOND: 30
+      API_KEY: abcd
+      BUCKET_NAME: tbbd-flight
+      PAYMENT_API: https://stg-utility.travelbookingbd.com/api/v1/payment
+      CALLBACK_URL_CODE: sharetrip_v_one

@@ -22,7 +22,5 @@ export const verifyApiKey = async (req: Request, res: Response, next: NextFuncti
             errors: []
         });
     }
-
     next();
-
 };

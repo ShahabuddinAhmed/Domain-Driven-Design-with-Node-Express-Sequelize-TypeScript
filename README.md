@@ -1,1 +1,3 @@
-# Domain-Driven-Design-with-Node-Express-Sequelize-TypeScript
+# ShareTrip Flight API
+
+## Flight Micro-service

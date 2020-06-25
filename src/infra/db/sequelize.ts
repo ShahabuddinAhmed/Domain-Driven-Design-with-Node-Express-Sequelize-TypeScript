@@ -8,8 +8,8 @@ export class ConnectDB {
         if (process.env.DATABASE_URL) {
             return new Sequelize(process.env.DATABASE_URL);
         }
-        return new Sequelize(config.SEQUELIZE.DATABASE, config.SEQUELIZE.USERNAME, config.SEQUELIZE.PASSWORD,
-            config.SEQUELIZEOPTIONS
+        return new Sequelize(config.SEQUELIZE.DATABASE, config.SEQUELIZE.USERNAME,
+            config.SEQUELIZE.PASSWORD, config.SEQUELIZEOPTIONS
         );
     }
 
@@ -26,10 +26,12 @@ const newSequelize = (): Sequelize => {
     return ConnectDB.getInstance();
 };
 
-export const initializeDBConnection = async () => {
+export const initializeDBConnection = async (): Promise<void> => {
     try {
         await newSequelize().authenticate();
-        console.log("MySQL Connection has been Established Successfully.");
+        // Becarefull for production database
+        await newSequelize().sync();
+        console.log("Database Connection has been Established Successfully.");
     } catch (err) {
         console.error("Unable to connect to the database:", err);
     }
