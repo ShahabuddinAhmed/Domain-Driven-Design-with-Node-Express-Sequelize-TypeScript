@@ -1,7 +1,7 @@
 {
-    "name": "flight-api",
+    "name": "node-api",
     "version": "1.0.0",
-    "description": "Flight Private API",
+    "description": "Node Private API",
     "main": "app.ts",
     "scripts": {
         "dev": "nodemon",
@@ -10,7 +10,7 @@
         "prod": "yarn build && yarn start",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "ShareTrip",
+    "author": "Shahabuddin Ahmed",
     "license": "ISC",
     "dependencies": {
         "@hapi/joi": "^17.1.1",
