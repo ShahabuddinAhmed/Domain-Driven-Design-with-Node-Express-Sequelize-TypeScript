@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   web:
-    container_name: flightService
+    container_name: nodeService
     build:
       dockerfile: Dockerfile.dev
       context: .
